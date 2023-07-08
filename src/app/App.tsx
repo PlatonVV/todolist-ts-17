@@ -16,13 +16,13 @@ import {
   IconButton,
   LinearProgress,
   Toolbar,
-  Typography
+  Typography,
 } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 
 type PropsType = {
-  demo?: boolean
-}
+  demo?: boolean;
+};
 
 function App({ demo = false }: PropsType) {
   const status = useSelector<AppRootStateType, RequestStatusType>((state) => state.app.status);
@@ -45,7 +45,7 @@ function App({ demo = false }: PropsType) {
           position: "fixed",
           top: "30%",
           textAlign: "center",
-          width: "100%"
+          width: "100%",
         }}
       >
         <CircularProgress />
