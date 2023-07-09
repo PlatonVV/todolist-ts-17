@@ -1,13 +1,13 @@
-import React, { useCallback, useEffect } from "react";
-import "./App.css";
-import { TodolistsList } from "features/TodolistsList/TodolistsList";
-import { ErrorSnackbar } from "components/ErrorSnackbar/ErrorSnackbar";
-import { useDispatch, useSelector } from "react-redux";
-import { AppRootStateType } from "./store";
-import { initializeAppTC, RequestStatusType } from "./app-reducer";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Login } from "features/Login/Login";
-import { logoutTC } from "features/Login/auth-reducer";
+import React, { useCallback, useEffect } from 'react';
+import './App.css';
+import { TodolistsList } from 'features/TodolistsList/TodolistsList';
+import { ErrorSnackbar } from 'components/ErrorSnackbar/ErrorSnackbar';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppRootStateType } from './store';
+import { initializeAppTC, RequestStatusType } from './app-reducer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Login } from 'features/Login/Login';
+import { logoutTC } from 'features/Login/auth-reducer';
 import {
   AppBar,
   Button,
@@ -17,8 +17,8 @@ import {
   LinearProgress,
   Toolbar,
   Typography,
-} from "@mui/material";
-import { Menu } from "@mui/icons-material";
+} from '@mui/material';
+import { Menu } from '@mui/icons-material';
 
 type PropsType = {
   demo?: boolean;
@@ -42,10 +42,10 @@ function App({ demo = false }: PropsType) {
     return (
       <div
         style={{
-          position: "fixed",
-          top: "30%",
-          textAlign: "center",
-          width: "100%",
+          position: 'fixed',
+          top: '30%',
+          textAlign: 'center',
+          width: '100%',
         }}
       >
         <CircularProgress />
@@ -69,12 +69,12 @@ function App({ demo = false }: PropsType) {
               </Button>
             )}
           </Toolbar>
-          {status === "loading" && <LinearProgress />}
+          {status === 'loading' && <LinearProgress />}
         </AppBar>
         <Container fixed>
           <Routes>
-            <Route path={"/"} element={<TodolistsList demo={demo} />} />
-            <Route path={"/login"} element={<Login />} />
+            <Route path={'/'} element={<TodolistsList demo={demo} />} />
+            <Route path={'/login'} element={<Login />} />
           </Routes>
         </Container>
       </div>

@@ -1,24 +1,24 @@
-import axios from "axios";
+import axios from 'axios';
 
 const settings = {
   withCredentials: true,
   headers: {
-    "API-KEY": "1cdd9f77-c60e-4af5-b194-659e4ebd5d41",
+    'API-KEY': '1cdd9f77-c60e-4af5-b194-659e4ebd5d41',
   },
 };
 const instance = axios.create({
-  baseURL: "https://social-network.samuraijs.com/api/1.1/",
+  baseURL: 'https://social-network.samuraijs.com/api/1.1/',
   ...settings,
 });
 
 // api
 export const todolistsAPI = {
   getTodolists() {
-    const promise = instance.get<TodolistType[]>("todo-lists");
+    const promise = instance.get<TodolistType[]>('todo-lists');
     return promise;
   },
   createTodolist(title: string) {
-    const promise = instance.post<ResponseType<{ item: TodolistType }>>("todo-lists", { title: title });
+    const promise = instance.post<ResponseType<{ item: TodolistType }>>('todo-lists', { title: title });
     return promise;
   },
   deleteTodolist(id: string) {
@@ -52,15 +52,15 @@ export type LoginParamsType = {
 
 export const authAPI = {
   login(data: LoginParamsType) {
-    const promise = instance.post<ResponseType<{ userId?: number }>>("auth/login", data);
+    const promise = instance.post<ResponseType<{ userId?: number }>>('auth/login', data);
     return promise;
   },
   logout() {
-    const promise = instance.delete<ResponseType<{ userId?: number }>>("auth/login");
+    const promise = instance.delete<ResponseType<{ userId?: number }>>('auth/login');
     return promise;
   },
   me() {
-    const promise = instance.get<ResponseType<{ id: number; email: string; login: string }>>("auth/me");
+    const promise = instance.get<ResponseType<{ id: number; email: string; login: string }>>('auth/me');
     return promise;
   },
 };
