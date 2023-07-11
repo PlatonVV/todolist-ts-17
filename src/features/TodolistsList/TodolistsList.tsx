@@ -82,7 +82,7 @@ export const TodolistsList: React.FC<PropsType> = ({ demo = false }) => {
   if (!isLoggedIn) {
     return <Navigate to={'/login'} />
   }
-
+  console.log(todolists)
   return (
     <>
       <Grid container style={{ padding: '20px' }}>

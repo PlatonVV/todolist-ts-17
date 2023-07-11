@@ -44,7 +44,7 @@ export const logoutTC = (): AppThunk => (dispatch) => {
     .logout()
     .then((res) => {
       if (res.data.resultCode === 0) {
-        dispatch(authActions.setIsLoggedIn({ isLoggedIn: true }))
+        dispatch(authActions.setIsLoggedIn({ isLoggedIn: false }))
         dispatch(appActions.setAppStatus({ status: 'succeeded' }))
       } else {
         handleServerAppError(res.data, dispatch)
