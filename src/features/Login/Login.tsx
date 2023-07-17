@@ -1,28 +1,27 @@
-import React from 'react';
-import { useFormik } from 'formik';
-import { useSelector } from 'react-redux';
-import { loginTC } from './auth-reducer';
-import { AppRootStateType } from 'app/store';
-import { Navigate } from 'react-router-dom';
-import { useAppDispatch } from 'hooks/useAppDispatch';
-import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Grid, TextField } from '@mui/material';
+import React from 'react'
+import { useFormik } from 'formik'
+import { loginTC } from './auth-reducer'
+import { Navigate } from 'react-router-dom'
+import { useAppDispatch } from 'hooks/useAppDispatch'
+import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, Grid, TextField } from '@mui/material'
+import { useAppSelector } from 'hooks/useAppSelector'
+import { isLoggedInSelector } from 'app/app.selector'
 
 export const Login = () => {
-  const dispatch = useAppDispatch();
-
-  const isLoggedIn = useSelector<AppRootStateType, boolean>((state) => state.auth.isLoggedIn);
+  const dispatch = useAppDispatch()
+  const isLoggedIn = useAppSelector(isLoggedInSelector)
 
   const formik = useFormik({
     validate: (values) => {
       if (!values.email) {
         return {
           email: 'Email is required',
-        };
+        }
       }
       if (!values.password) {
         return {
           password: 'Password is required',
-        };
+        }
       }
     },
     initialValues: {
@@ -31,12 +30,12 @@ export const Login = () => {
       rememberMe: false,
     },
     onSubmit: (values) => {
-      dispatch(loginTC(values));
+      dispatch(loginTC(values))
     },
-  });
+  })
 
   if (isLoggedIn) {
-    return <Navigate to={'/'} />;
+    return <Navigate to={'/'} />
   }
 
   return (
@@ -72,5 +71,5 @@ export const Login = () => {
         </form>
       </Grid>
     </Grid>
-  );
-};
+  )
+}
