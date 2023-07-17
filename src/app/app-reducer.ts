@@ -5,8 +5,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 const initialState = {
   status: 'idle' as RequestStatusType,
-  error: null as null | string,
   isInitialized: false,
+  error: null as null | string,
 }
 
 export type appInitialStateType = typeof initialState
